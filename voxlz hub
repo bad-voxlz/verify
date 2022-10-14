@@ -1,0 +1,63 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Player = game.Players.LocalPlayer
+local Window = OrionLib:MakeWindow({Name = "Key System", HidePremium = false, SaveConfig = true, IntroEnabled = false})
+
+OrionLib:MakeNotification({
+	Name = "Voxlz hub l Logged in!",
+	Content = "Logged in as  "..Player.Name..".",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+_G.Key1 = "eq4NubdEEd"
+_G.KeyInput = "string"
+
+function MakeScriptHub()
+    OrionLib:Destroy()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/bad-voxlz/voxlz-hub/main/leak%20na%20jub%20muar.lua'))()
+end
+
+function CorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "Correct Key!",
+        Content = "You have entered the correct key!",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+function IncorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "Incorrect Key!",
+        Content = "ใส่ให้ถูกสิไอควาย",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+local Tab = Window:MakeTab({
+	Name = "Key",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddTextbox({
+	Name = "Enter Key",
+	Default = "Paste Key Here",
+	TextDisappear = true,
+	Callback = function(Value)
+		_G.KeyInput = Value
+	end	  
+})
+
+Tab:AddButton({
+	Name = "Check Key",
+	Callback = function()
+      		if _G.KeyInput == _G.Key1 then
+            CorrectKeyNotification()
+            MakeScriptHub()       
+            else
+                IncorrectKeyNotification()
+            end
+  	end    
+})
